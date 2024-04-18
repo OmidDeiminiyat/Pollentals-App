@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pollentals App</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!-- <script src="assets/js/second.js"></script> -->
+</head>
+<body>
+    <section class="main-section">
+        <header>
+            <h3 id="locationName"></h3>
+            <span class="material-symbols-outlined">
+                arrow_drop_down
+                </span>
+        </header>
+        
+        <section class="body-section" >
+            <div id="dataContainer"></div>
+            <div id="SecondContainer"></div>
+            <div id="ThirdContainer"></div>
+        </section>
+
+        <section class="myButts" id="myBus">
+            <h1>Mine Allergier</h1>
+            <div class="allButt" > 
+              
+                <div>
+                <p>Birk </p>
+                <label class="switch">
+                    <input id="checkboxInput" type="checkbox" > 
+                    <span class="slider round"></span>
+                </label>
+                </div>
+                <div>
+                    <p>Elm </p>
+                    <label class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    </div>
+                    <div>
+                        <p>Fisk </p>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        </div>
+                        <div>
+                            <p>Test </p>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            </div>
+                            <div>
+                                <p>Test </p>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                                </div>
+
+         
+              
+          </div>
+
+        </section>
+
+        <footer>
+            <span class="material-symbols-outlined">
+                home
+            </span>
+             <a href="map.html"> <span class="material-symbols-outlined">
+                    map
+            </span> </a>
+            <a href="#" onclick="openButs()"> <span class="material-symbols-outlined">
+                settings
+            </span> </a>
+
+        </footer>
+    </section>
+   <script src="assets/js/map.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swipe Button</title>
+<style>
+  .swipe-button {
+    position: relative;
+    width: 100px; /* Width of the button */
+    height: 40px; /* Height of the button */
+    background-color: #007bff; /* Default background color */
+    color: #fff; /* Button text color */
+    text-align: center; /* Center text horizontally */
+    line-height: 40px; /* Center text vertically */
+    border: none; /* Remove button border */
+    border-radius: 20px; /* Border radius to make it rounded */
+    cursor: pointer;
+    overflow: hidden; /* Hide overflowing content */
+    transition: background-color 0.3s; /* Transition for smooth hover effect */
+  }
+
+  .swipe-button:hover {
+    background-color: #0056b3; /* Background color on hover */
+  }
+
+  .swipe-button::before {
+    content: ''; /* Create a pseudo-element for the left arrow */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #66bb6a; /* Green color for swipe right */
+    transition: width 0.3s; /* Transition for smooth swipe animation */
+  }
+
+  .swipe-button.left-swipe::before {
+    width: 0; /* Reduce the width to 0 for swipe left */
+    background-color: #ff6b6b; /* Red color for swipe left */
+  }
+
+  /* Styles for the button text */
+  .button-text {
+    position: relative;
+    z-index: 1; /* Ensure text appears above the pseudo-element */
+  }
+</style>
+</head>
+<body>
+  <button class="swipe-button" onclick="toggleSwipe()">Swipe</button>
+
+  <script>
+    let isSwipedRight = false;
+
+    function toggleSwipe() {
+      const swipeButton = document.querySelector('.swipe-button');
+      isSwipedRight = !isSwipedRight;
+
+      if (isSwipedRight) {
+        swipeButton.classList.remove('left-swipe');
+      } else {
+        swipeButton.classList.add('left-swipe');
+      }
+    }
+  </script>
+</body>
+</html>
