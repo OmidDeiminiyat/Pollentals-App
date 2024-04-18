@@ -5,18 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pollentals App</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js"></script>
+     <script src="assets/js/script.js"></script> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="assets/js/vities.js" defer></script>
     <!-- <script src="assets/js/second.js"></script> -->
 </head>
 <body>
     <section class="main-section">
         <header>
             <h3 id="locationName"></h3>
-            <span class="material-symbols-outlined">
+            <span onclick="openCities()" class="material-symbols-outlined">
                 arrow_drop_down
                 </span>
         </header>
+        <section id="cities" >
+            <div onclick="closeCitie()" >X</div>
+            <h4 onclick="Copenhagen('57.0488', '9.9217'); FromAalborg();"  >Aalborg</h4>
+            <h4 onclick="Copenhagen('55.6761', '12.5683'); FromAalborg();" >København</h4>
+            <h4 onclick="Aarhus()">Aarhus</h4>
+        </section>
         
         <section class="body-section" >
             <div id="dataContainer"></div>
@@ -25,6 +32,7 @@
         </section>
 
         <section class="myButts" id="myBus">
+            <span class="CloseBox" onclick="closeBox()" >X</span>
             <h1>Mine Allergier</h1>
             <div class="allButt" > 
               
@@ -38,28 +46,28 @@
                 <div>
                     <p>Elm </p>
                     <label class="switch">
-                        <input type="checkbox">
+                        <input id="second" type="checkbox">
                         <span class="slider round"></span>
                     </label>
                     </div>
                     <div>
                         <p>Fisk </p>
                         <label class="switch">
-                            <input type="checkbox">
+                            <input id="third" type="checkbox">
                             <span class="slider round"></span>
                         </label>
                         </div>
                         <div>
                             <p>Test </p>
                             <label class="switch">
-                                <input type="checkbox">
+                                <input id="forth" type="checkbox">
                                 <span class="slider round"></span>
                             </label>
                             </div>
                             <div>
                                 <p>Test </p>
                                 <label class="switch">
-                                    <input type="checkbox">
+                                    <input id="fifth" type="checkbox">
                                     <span class="slider round"></span>
                                 </label>
                                 </div>
@@ -84,5 +92,6 @@
         </footer>
     </section>
    <script src="assets/js/map.js"></script>
+
 </body>
 </html>

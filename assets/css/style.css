@@ -26,6 +26,7 @@ header h3 {
 }
 header .material-symbols-outlined {
     margin-top: 9%;
+    cursor: pointer;
 }
 .main-section{
     display: block;
@@ -46,7 +47,7 @@ header .material-symbols-outlined {
     border: 1px solid green;
     border-radius: 15px;
     margin-top: 21px;
-    display: grid;
+    display: none;
     grid-template-columns: 1fr 1fr;
 }
 .body-section #dataContainer img, #SecondContainer img, #ThirdContainer img{
@@ -155,15 +156,21 @@ footer span{
   }
   
 #myBus {
+    display: none;
     border: 1px solid black;
     position: absolute;
     top: 30px;
     width: 60%;
-    display: block;
     justify-content: center;
     background-color: white;
     border-radius: 20px;
 }
+.CloseBox {
+    position: absolute;
+    margin: 20px 0 0 30px;
+    cursor: pointer;
+}
+
 #myBus h1 {
 text-align: center;
 }
@@ -181,6 +188,18 @@ text-align: center;
 }
 
 
+
+#cities {
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+    border: 1px solid;
+    display: none;
+}
+
+#cities h4 {
+    cursor: pointer;
+}
 
 
 

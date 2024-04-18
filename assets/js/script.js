@@ -114,6 +114,8 @@ function positionSucces(position) {
 }
 
 
+
+
 function getPollenData(latitude, longitude) {
 
 
@@ -213,7 +215,7 @@ function MapPopupCallBack(lat, lng) {
 
 }
 
-
+    
 function PollenDataRecieved(data) {
 console.log(data)
   console.log(data.current.alder_pollen);
@@ -251,8 +253,10 @@ dataContainer.appendChild(cardImage);
 dataContainer.appendChild(MyDiv);
 dataContainer.appendChild(createchart);
 
+  
  
 }
+
 
 
 

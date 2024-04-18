@@ -1,0 +1,24 @@
+
+
+{
+    "name": "PollenTals APP",
+    "short_name": "PTA",
+    "description": "Et sej Pollen tals App",
+    "icons": [
+      {
+        "src": "https://fonts.googleapis.com",
+        "sizes": "20*20",
+        "type": "icone"
+      },
+      {
+        "src": "images/icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#4BA598",
+    "theme_color": "#F5D45B"
+  }
+  
