@@ -108,12 +108,13 @@ function Copenhagen(first, second)  {
   console.log(data)
     console.log(data.current.alder_pollen);
   
-    const imageUrl = 'https://via.placeholder.com/300'
+    const imageUrl = '../assets/image/Birk.png'
   
     const dataContainer = document.getElementById('dataContainer');
   
   
   const MyDiv = document.createElement('div');
+  MyDiv.classList.add('FirstDiv');
     
   const paragraf = document.createElement('h4');
   paragraf.classList.add('FirstParaf');
@@ -128,18 +129,28 @@ function Copenhagen(first, second)  {
   Line.innerHTML = data.current.alder_pollen;
   MyDiv.appendChild(Line);
   
-  const Calculator = data.current.alder_pollen * 100 + 'px';
+
   const createchart = document.createElement('Span');
   createchart.classList.add('chart');
   createchart.style.border = '1px solid #ccc';
-  createchart.style.width = Calculator + 'px';
-  createchart.style.backgroundColor = 'orange';
   createchart.style.height = '9px';
+  if (data.current.alder_pollen >= '6') {
+    createchart.style.width = '120px';
+    createchart.style.backgroundColor = 'red';
+  } else if (data.current.alder_pollen >= '3' && data.current.alder_pollen <= '6' ) {
+    createchart.style.width = '60px';
+    createchart.style.backgroundColor = 'yellow';
+  } else {
+    createchart.style.width = '42px';
+    createchart.style.backgroundColor = 'green';
+  }
+
+  MyDiv.appendChild(createchart);
   
   
   dataContainer.appendChild(cardImage);
   dataContainer.appendChild(MyDiv);
-  dataContainer.appendChild(createchart);
+
   
     
    
@@ -154,7 +165,7 @@ function Copenhagen(first, second)  {
       console.log(data)
         console.log(data.current.alder_pollen);
       
-        const SecondimageUrl = 'https://via.placeholder.com/300'
+        const SecondimageUrl = '../assets/image/Elm.png'
       
         const myCont = document.getElementById('SecondContainer');
   
@@ -175,18 +186,29 @@ function Copenhagen(first, second)  {
   SecondLine.innerHTML = data.current.birch_pollen;
   SecondDiv.appendChild(SecondLine);
   
-  const SecondCalculator = data.current.alder_pollen + 'px';
+  
   const Secondcreatechart = document.createElement('Span');
   Secondcreatechart.classList.add('chart');
   Secondcreatechart.style.border = '1px solid #ccc';
-  Secondcreatechart.style.width = SecondCalculator + 'px';
-  Secondcreatechart.style.backgroundColor = 'orange';
   Secondcreatechart.style.height = '9px';
+  if (data.current.birch_pollen >= '6') {
+    Secondcreatechart.style.width = '90px';
+    Secondcreatechart.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    Secondcreatechart.style.width = '60px';
+    Secondcreatechart.style.backgroundColor = 'yellow';
+  } else {
+    Secondcreatechart.style.width = '30px';
+    Secondcreatechart.style.backgroundColor = 'green';
+  }
+ 
+
+  SecondDiv.appendChild(Secondcreatechart);
   
   
   myCont.appendChild(SecondImage);
   myCont.appendChild(SecondDiv);
-  myCont.appendChild(Secondcreatechart);
+  
   
   }
   // here 
@@ -200,7 +222,7 @@ function Copenhagen(first, second)  {
       console.log(data)
         console.log(data.current.alder_pollen);
       
-        const SecondimageUrl = 'https://via.placeholder.com/300'
+        const SecondimageUrl = '../assets/image/fisk.png'
       
         const myCont = document.getElementById('ThirdContainer');
   
@@ -221,18 +243,28 @@ function Copenhagen(first, second)  {
   SecondLine.innerHTML = data.current.grass_pollen;
   SecondDiv.appendChild(SecondLine);
   
-  const SecondCalculator = data.current.alder_pollen + 'px';
+
   const Secondcreatechart = document.createElement('Span');
   Secondcreatechart.classList.add('chart');
   Secondcreatechart.style.border = '1px solid #ccc';
-  Secondcreatechart.style.width = SecondCalculator + 'px';
-  Secondcreatechart.style.backgroundColor = 'orange';
-  Secondcreatechart.style.height = '9px';
+  Secondcreatechart.style.height='9px';
+  if (data.current.grass_pollen >= '2') {
+    Secondcreatechart.style.width = '90px';
+    Secondcreatechart.style.backgroundColor = 'red';
+  } else if (data.current.grass_pollen >= '1' && data.current.grass_pollen <= '2' ) {
+    Secondcreatechart.style.width = '60px';
+    Secondcreatechart.style.backgroundColor = 'yellow';
+  } else {
+    Secondcreatechart.style.width = '30px';
+    Secondcreatechart.style.backgroundColor = 'green';
+  }
+
+  SecondDiv.appendChild(Secondcreatechart);
   
-  
+
   myCont.appendChild(SecondImage);
   myCont.appendChild(SecondDiv);
-  myCont.appendChild(Secondcreatechart);
+
   
   }
     

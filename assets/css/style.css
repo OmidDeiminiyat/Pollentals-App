@@ -41,6 +41,14 @@ header .material-symbols-outlined {
 .body-section {
     display: grid;
     grid-template-columns: 1fr;
+    width: 70%;
+    margin-left: 15%;
+}
+.body-section img {
+   margin-left: 30px;
+}
+.body-section #ThirdContainer img {
+    margin-top: 30px;
 }
 
 .body-section #dataContainer, #SecondContainer, #ThirdContainer { 
@@ -66,9 +74,15 @@ header .material-symbols-outlined {
 }
 
 
-.body-section #dataContainer .FirstDiv {
+.FirstDiv {
     position: relative;
-    margin-top: 10px;
+    margin: 10px 0 10px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.body-section .chart {
+
 }
 
 footer {
@@ -195,6 +209,8 @@ text-align: center;
     margin-left: 15%;
     border: 1px solid;
     display: none;
+    position: absolute;
+    background-color: white;
 }
 
 #cities h4 {

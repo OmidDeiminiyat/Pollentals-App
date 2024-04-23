@@ -220,7 +220,7 @@ function PollenDataRecieved(data) {
 console.log(data)
   console.log(data.current.alder_pollen);
 
-  const imageUrl = 'https://via.placeholder.com/300'
+  const imageUrl = '../image/Birk.png'
 
   const dataContainer = document.getElementById('dataContainer');
 
@@ -266,7 +266,7 @@ function secondData(data) {
     console.log(data)
       console.log(data.current.alder_pollen);
     
-      const SecondimageUrl = 'https://via.placeholder.com/300'
+      const SecondimageUrl = '../assets/image/Elm.png'
     
       const myCont = document.getElementById('SecondContainer');
 
@@ -287,11 +287,11 @@ SecondLine.classList.add('SecondParaf');
 SecondLine.innerHTML = data.current.birch_pollen;
 SecondDiv.appendChild(SecondLine);
 
-const SecondCalculator = data.current.alder_pollen + 'px';
+
 const Secondcreatechart = document.createElement('Span');
 Secondcreatechart.classList.add('chart');
 Secondcreatechart.style.border = '1px solid #ccc';
-Secondcreatechart.style.width = SecondCalculator + 'px';
+Secondcreatechart.style.width = '10px';
 Secondcreatechart.style.backgroundColor = 'orange';
 Secondcreatechart.style.height = '9px';
 
@@ -312,7 +312,7 @@ function thirdData(data) {
     console.log(data)
       console.log(data.current.alder_pollen);
     
-      const SecondimageUrl = 'https://via.placeholder.com/300'
+      const SecondimageUrl = '../assets/image/fisk.png'
     
       const myCont = document.getElementById('ThirdContainer');
 
@@ -320,24 +320,26 @@ function thirdData(data) {
 const SecondDiv = document.createElement('div');
 SecondDiv.classList.add('FirstDiv');
   
+const SecondImage = document.createElement('img');
+SecondImage.classList.add('card-image');
+SecondImage.src = SecondimageUrl;
+
 const Secondparagraf = document.createElement('h4');
 Secondparagraf.classList.add('FirstParaf');
 Secondparagraf.innerText = 'Fisk:';
 SecondDiv.appendChild(Secondparagraf);
-const SecondImage = document.createElement('img');
-SecondImage.classList.add('card-image');
-SecondImage.src = SecondimageUrl;
+
       
 const SecondLine = document.createElement('h1');
 SecondLine.classList.add('SecondParaf');
 SecondLine.innerHTML = data.current.grass_pollen;
 SecondDiv.appendChild(SecondLine);
 
-const SecondCalculator = data.current.alder_pollen + 'px';
+
 const Secondcreatechart = document.createElement('Span');
 Secondcreatechart.classList.add('chart');
 Secondcreatechart.style.border = '1px solid #ccc';
-Secondcreatechart.style.width = SecondCalculator + 'px';
+Secondcreatechart.style.width = '50px';
 Secondcreatechart.style.backgroundColor = 'orange';
 Secondcreatechart.style.height = '9px';
 
