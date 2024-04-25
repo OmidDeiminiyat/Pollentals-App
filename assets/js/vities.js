@@ -24,7 +24,6 @@ function Copenhagen(first, second)  {
         PollenDataRecieved(data)
         secondData(data)
         thirdData(data)
-        console.log(data);
       })
       .catch((error) => {
         // Handle any errors that occurred during the fetch
@@ -75,15 +74,15 @@ function Copenhagen(first, second)  {
   
     switch (myNavItem) {
       case "map":
-        console.log("map");
+      //  console.log("map");
         makeMap(currentLat, currentLong);
         break;
       case "settings":
-        console.log("settings");
+     //   console.log("settings");
         map.remove()
         break;
       case "home":
-        console.log("home");
+     //   console.log("home");
         map.remove()
         break;
       default:
@@ -94,7 +93,7 @@ function Copenhagen(first, second)  {
   }
   
   function MapPopupCallBack(lat, lng) {
-    console.log("pop up");
+   // console.log("pop up");
     map.closePopup(PopUp)
     PopUp = false;
   
@@ -105,8 +104,8 @@ function Copenhagen(first, second)  {
   
       
   function PollenDataRecieved(data) {
-  console.log(data)
-    console.log(data.current.alder_pollen);
+ 
+    const Mycalculator = data.current.birch_pollen + '%';
   
     const imageUrl = '../assets/image/Birk.png'
   
@@ -126,7 +125,7 @@ function Copenhagen(first, second)  {
         
   const Line = document.createElement('h1');
   Line.classList.add('SecondParaf');
-  Line.innerHTML = data.current.alder_pollen;
+  Line.innerHTML = data.current.birch_pollen;
   MyDiv.appendChild(Line);
   
 
@@ -134,14 +133,12 @@ function Copenhagen(first, second)  {
   createchart.classList.add('chart');
   createchart.style.border = '1px solid #ccc';
   createchart.style.height = '9px';
-  if (data.current.alder_pollen >= '6') {
-    createchart.style.width = '120px';
+  createchart.style.width = Mycalculator;
+  if (data.current.birch_pollen >= '6') {
     createchart.style.backgroundColor = 'red';
-  } else if (data.current.alder_pollen >= '3' && data.current.alder_pollen <= '6' ) {
-    createchart.style.width = '60px';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
     createchart.style.backgroundColor = 'yellow';
   } else {
-    createchart.style.width = '42px';
     createchart.style.backgroundColor = 'green';
   }
 
@@ -159,11 +156,11 @@ function Copenhagen(first, second)  {
   
   
   
-  
-  
   function secondData(data) {
-      console.log(data)
-        console.log(data.current.alder_pollen);
+     // console.log(data)
+      //  console.log(data.current.alder_pollen);
+      const calculator = data.current.alder_pollen + '%';
+      console.log('myCalculator=' + calculator);
       
         const SecondimageUrl = '../assets/image/Elm.png'
       
@@ -183,22 +180,21 @@ function Copenhagen(first, second)  {
         
   const SecondLine = document.createElement('h1');
   SecondLine.classList.add('SecondParaf');
-  SecondLine.innerHTML = data.current.birch_pollen;
+  SecondLine.innerHTML = data.current.alder_pollen;
   SecondDiv.appendChild(SecondLine);
-  
   
   const Secondcreatechart = document.createElement('Span');
   Secondcreatechart.classList.add('chart');
   Secondcreatechart.style.border = '1px solid #ccc';
   Secondcreatechart.style.height = '9px';
-  if (data.current.birch_pollen >= '6') {
-    Secondcreatechart.style.width = '90px';
+  Secondcreatechart.style.width = calculator;
+  if (data.current.alder_pollen >= '6') {
     Secondcreatechart.style.backgroundColor = 'red';
-  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
-    Secondcreatechart.style.width = '60px';
+  } else if (data.current.alder_pollen >= '3' && data.current.alder_pollen <= '6' ) {
+   
     Secondcreatechart.style.backgroundColor = 'yellow';
   } else {
-    Secondcreatechart.style.width = '30px';
+   
     Secondcreatechart.style.backgroundColor = 'green';
   }
  
@@ -219,14 +215,10 @@ function Copenhagen(first, second)  {
   
   
   function thirdData(data) {
-      console.log(data)
-        console.log(data.current.alder_pollen);
-      
+    const Thirdcalculator = data.current.grass_pollen + '%';      
         const SecondimageUrl = '../assets/image/fisk.png'
-      
         const myCont = document.getElementById('ThirdContainer');
-  
-  
+
   const SecondDiv = document.createElement('div');
   SecondDiv.classList.add('FirstDiv');
     
@@ -248,14 +240,12 @@ function Copenhagen(first, second)  {
   Secondcreatechart.classList.add('chart');
   Secondcreatechart.style.border = '1px solid #ccc';
   Secondcreatechart.style.height='9px';
+  Secondcreatechart.style.width = Thirdcalculator;
   if (data.current.grass_pollen >= '2') {
-    Secondcreatechart.style.width = '90px';
     Secondcreatechart.style.backgroundColor = 'red';
   } else if (data.current.grass_pollen >= '1' && data.current.grass_pollen <= '2' ) {
-    Secondcreatechart.style.width = '60px';
     Secondcreatechart.style.backgroundColor = 'yellow';
   } else {
-    Secondcreatechart.style.width = '30px';
     Secondcreatechart.style.backgroundColor = 'green';
   }
 
@@ -273,7 +263,7 @@ function Copenhagen(first, second)  {
     document.getElementById('SecondContainer').innerHTML = ''; 
     document.getElementById('ThirdContainer').innerHTML = ''; 
 
-    console.log('Function state reset!');
+   // console.log('Function state reset!');
   }
   
   

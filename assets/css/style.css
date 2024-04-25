@@ -268,7 +268,7 @@ cursor: pointer;
 }
 
 
-#singlePage #singleDataDisplay .divList {
+#singlePage #singleDataDisplay .divList, #singleDataTwo .divList {
     display: grid;
     grid-template-columns: 1fr 1fr; 
     margin-left: 60px;
