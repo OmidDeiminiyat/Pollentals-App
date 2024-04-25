@@ -140,6 +140,9 @@ function getPollenData(latitude, longitude) {
       PollenDataRecieved(data)
       secondData(data)
       thirdData(data)
+      SingleR(data)
+      recivedFirstItem(data)
+
     })
     .catch((error) => {
       // Handle any errors that occurred during the fetch
@@ -217,8 +220,8 @@ function MapPopupCallBack(lat, lng) {
 
     
 function PollenDataRecieved(data) {
-console.log(data)
-  console.log(data.current.alder_pollen);
+//console.log(data)
+  //console.log(data.current.alder_pollen);
 
   const imageUrl = '../image/Birk.png'
 
@@ -263,8 +266,8 @@ dataContainer.appendChild(createchart);
 
 
 function secondData(data) {
-    console.log(data)
-      console.log(data.current.alder_pollen);
+//console.log(data)
+    //  console.log(data.current.alder_pollen);
     
       const SecondimageUrl = '../assets/image/Elm.png'
     
@@ -306,11 +309,9 @@ myCont.appendChild(Secondcreatechart);
 
 
 
-
-
 function thirdData(data) {
-    console.log(data)
-      console.log(data.current.alder_pollen);
+  // console.log(data)
+     
     
       const SecondimageUrl = '../assets/image/fisk.png'
     
@@ -355,5 +356,418 @@ myCont.appendChild(Secondcreatechart);
 
 
 
-// save locale storage
+// Firest start
 
+
+function dataFunc(recivedData) {
+  const delPage1 = document.getElementById('AllData');
+  const showSingle = document.getElementById('singleDataDisplay');
+  showSingle.style.display='grid';
+  delPage1.style.display = 'none';
+  console.log(recivedData);
+
+  recivedFirstItem()
+}
+
+function recivedFirstItem(data) {
+ 
+  console.log(data.current.birch_pollen);
+ const currentTime = new Date();
+
+ const currentHour = currentTime.getHours();
+
+ let futureHours = [];
+ for (let hour = currentHour + 1; hour < 24; hour++) {
+     futureHours.push(hour);
+ }
+ 
+ console.log(futureHours);
+    const imageUrl = '../assets/image/Birk.png'
+  
+    const SingleData = document.getElementById('singleDataDisplay');
+    
+  
+  const MyDiv = document.createElement('div');
+  MyDiv.classList.add('FirstDiv');
+    
+  const paragraf = document.createElement('h4');
+  paragraf.classList.add('FirstParaf');
+  paragraf.innerText = 'Birk:';
+  MyDiv.appendChild(paragraf);
+  const cardImage = document.createElement('img');
+        cardImage.classList.add('card-image');
+        cardImage.src = imageUrl;
+        
+  const Line = document.createElement('h1');
+  Line.classList.add('SecondParaf');
+  Line.innerHTML = data.current.birch_pollen;
+  MyDiv.appendChild(Line);
+  
+
+  const createchart = document.createElement('Span');
+  createchart.classList.add('chart');
+  createchart.style.border = '1px solid #ccc';
+  createchart.style.height = '18px';
+  if (data.current.birch_pollen >= '6') {
+    createchart.style.width = '120px';
+    createchart.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    createchart.style.width = '60px';
+    createchart.style.backgroundColor = 'yellow';
+  } else {
+    createchart.style.width = '40px';
+    createchart.style.backgroundColor = 'green';
+  }
+
+  const newDivP = document.createElement('div');
+  newDivP.classList.add('divList');
+  
+
+  const hourLine = document.createElement('p');
+  hourLine.classList.add('hourLine');
+  hourLine.innerHTML = currentHour + ":00";
+  const firstTal = document.createElement('Span');
+  firstTal.classList.add('chart');
+  firstTal.style.border = '1px solid #ccc';
+  firstTal.style.height = '18px';
+  firstTal.style.margin = '14px 0 0 0';
+  firstTal.innerText = data.hourly.birch_pollen[currentHour];
+
+  if (data.current.birch_pollen >= '6') {
+    firstTal.style.width = '120px';
+    firstTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    firstTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    firstTal.style.width = '42px';
+    firstTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineTwo = document.createElement('p');
+  hourLineTwo.classList.add('hourLine');
+  hourLineTwo.innerHTML = currentHour + 1 + ":00";
+  const secondTal = document.createElement('Span');
+  secondTal.classList.add('chart');
+  secondTal.style.border = '1px solid #ccc';
+  secondTal.style.height = '18px';
+  secondTal.style.margin = '14px 0 0 0';
+  secondTal.innerText = data.hourly.birch_pollen[currentHour+1];
+
+  if (data.current.birch_pollen >= '6') {
+    secondTal.style.width = '120px';
+    secondTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    secondTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    secondTal.style.width = '42px';
+    secondTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineThree = document.createElement('p');
+  hourLineThree.classList.add('hourLine');
+  hourLineThree.innerHTML = currentHour + 2 + ":00";
+     const thirdTal = document.createElement('Span');
+  thirdTal.classList.add('chart');
+  thirdTal.style.border = '1px solid #ccc';
+  thirdTal.style.height = '18px';
+  thirdTal.style.margin = '14px 0 0 0';
+  thirdTal.innerText = data.hourly.birch_pollen[currentHour+2];
+
+  if (data.current.birch_pollen >= '6') {
+    thirdTal.style.width = '120px';
+    thirdTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    thirdTal.style.width = '60px';
+    thirdTal.style.backgroundColor = 'yellow';
+  } else {
+    thirdTal.style.width = '42px';
+    thirdTal.style.backgroundColor = 'green';
+  }
+
+  const hourLinefour = document.createElement('p');
+  hourLinefour.classList.add('hourLine');
+  hourLinefour.innerHTML = currentHour + 3 + ":00";
+     const forthTal = document.createElement('Span');
+  forthTal.classList.add('chart');
+  forthTal.style.border = '1px solid #ccc';
+  forthTal.style.height = '18px';
+  forthTal.style.margin = '14px 0 0 0';
+  forthTal.innerText = data.hourly.alder_pollen[currentHour+3];
+
+  if (data.current.birch_pollen >= '6') {
+    firstTal.style.width = '120px';
+    forthTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    forthTal.style.width = '60px';
+    firstforthTalTal.style.backgroundColor = 'yellow';
+  } else {
+    forthTal.style.width = '42px';
+    forthTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineFive = document.createElement('p');
+  hourLineFive.classList.add('hourLine');
+  hourLineFive.innerHTML = currentHour + 4 + ":00";
+     const fifthTal = document.createElement('Span');
+  fifthTal.classList.add('chart');
+  fifthTal.style.border = '1px solid #ccc';
+  fifthTal.style.height = '18px';
+  fifthTal.style.margin = '14px 0 0 0';
+  fifthTal.innerText = data.hourly.birch_pollen[currentHour+4];
+  if (data.current.birch_pollen >= '6') {
+    fifthTal.style.width = '120px';
+    fifthTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    fifthTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    fifthTal.style.width = '42px';
+    fifthTal.style.backgroundColor = 'green';
+  }
+
+
+
+  newDivP.appendChild(hourLine);
+  newDivP.appendChild(firstTal);
+
+  newDivP.appendChild(hourLineTwo);
+  newDivP.appendChild(secondTal);
+
+  newDivP.appendChild(hourLineThree);
+  newDivP.appendChild(thirdTal);
+
+  newDivP.appendChild(hourLinefour);
+  newDivP.appendChild(forthTal);
+
+  newDivP.appendChild(hourLineFive);
+  newDivP.appendChild(fifthTal);
+
+
+  MyDiv.appendChild(createchart);
+  SingleData.appendChild(cardImage);
+  SingleData.appendChild(MyDiv);
+  SingleData.appendChild(newDivP);
+
+   console.log(letArr);
+
+
+
+}
+  
+  
+  
+
+
+
+
+
+// here second start
+
+function SecondFunc(SecondDataRecived) {
+  const delPage1 = document.getElementById('AllData');
+  const mysecond = document.getElementById('singleDataDisplay');
+  mysecond.style.display='grid';
+  delPage1.style.display = 'none';
+  console.log(SecondDataRecived);
+  SingleR()
+
+
+}
+
+
+function SingleR(data) {
+  console.log(data)
+ //const letArr = data.hourly.birch_pollen;
+ const currentTime = new Date();
+
+ const currentHour = currentTime.getHours();
+
+ let futureHours = [];
+ for (let hour = currentHour + 1; hour < 24; hour++) {
+     futureHours.push(hour);
+ }
+ 
+ console.log(futureHours);
+    const imageUrl = '../assets/image/Elm.png'
+  
+    const SecondSingle = document.getElementById('singleDataDisplay');
+    
+  
+  const MyDiv = document.createElement('div');
+  MyDiv.classList.add('FirstDiv');
+    
+  const paragraf = document.createElement('h4');
+  paragraf.classList.add('FirstParaf');
+  paragraf.innerText = 'Elm:';
+  MyDiv.appendChild(paragraf);
+  const cardImage = document.createElement('img');
+        cardImage.classList.add('card-image');
+        cardImage.src = imageUrl;
+        
+  const Line = document.createElement('h1');
+  Line.classList.add('SecondParaf');
+  Line.innerHTML = data.current.birch_pollen;
+  MyDiv.appendChild(Line);
+  
+
+  const createchart = document.createElement('Span');
+  createchart.classList.add('chart');
+  createchart.style.border = '1px solid #ccc';
+  createchart.style.height = '18px';
+  if (data.current.birch_pollen >= '6') {
+    createchart.style.width = '120px';
+    createchart.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    createchart.style.width = '60px';
+    createchart.style.backgroundColor = 'yellow';
+  } else {
+    createchart.style.width = '42px';
+    createchart.style.backgroundColor = 'green';
+  }
+
+  const newDivP = document.createElement('div');
+  newDivP.classList.add('divList');
+  
+
+  const hourLine = document.createElement('p');
+  hourLine.classList.add('hourLine');
+  hourLine.innerHTML = currentHour + ":00";
+  const firstTal = document.createElement('Span');
+  firstTal.classList.add('chart');
+  firstTal.style.border = '1px solid #ccc';
+  firstTal.style.height = '18px';
+  firstTal.style.margin = '14px 0 0 0';
+  firstTal.innerText = data.hourly.birch_pollen[currentHour];
+
+  if (data.current.birch_pollen >= '6') {
+    firstTal.style.width = '120px';
+    firstTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    firstTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    firstTal.style.width = '42px';
+    firstTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineTwo = document.createElement('p');
+  hourLineTwo.classList.add('hourLine');
+  hourLineTwo.innerHTML = currentHour + 1 + ":00";
+  const secondTal = document.createElement('Span');
+  secondTal.classList.add('chart');
+  secondTal.style.border = '1px solid #ccc';
+  secondTal.style.height = '18px';
+  secondTal.style.margin = '14px 0 0 0';
+  secondTal.innerText = data.hourly.birch_pollen[currentHour+1];
+
+  if (data.current.birch_pollen >= '6') {
+    secondTal.style.width = '120px';
+    secondTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    secondTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    secondTal.style.width = '42px';
+    secondTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineThree = document.createElement('p');
+  hourLineThree.classList.add('hourLine');
+  hourLineThree.innerHTML = currentHour + 2 + ":00";
+     const thirdTal = document.createElement('Span');
+  thirdTal.classList.add('chart');
+  thirdTal.style.border = '1px solid #ccc';
+  thirdTal.style.height = '18px';
+  thirdTal.style.margin = '14px 0 0 0';
+  thirdTal.innerText = data.hourly.birch_pollen[currentHour+2];
+
+  if (data.current.birch_pollen >= '6') {
+    thirdTal.style.width = '120px';
+    thirdTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    thirdTal.style.width = '60px';
+    thirdTal.style.backgroundColor = 'yellow';
+  } else {
+    thirdTal.style.width = '42px';
+    thirdTal.style.backgroundColor = 'green';
+  }
+
+  const hourLinefour = document.createElement('p');
+  hourLinefour.classList.add('hourLine');
+  hourLinefour.innerHTML = currentHour + 3 + ":00";
+     const forthTal = document.createElement('Span');
+  forthTal.classList.add('chart');
+  forthTal.style.border = '1px solid #ccc';
+  forthTal.style.height = '18px';
+  forthTal.style.margin = '14px 0 0 0';
+  forthTal.innerText = data.hourly.birch_pollen[currentHour+3];
+
+  if (data.current.birch_pollen >= '6') {
+    firstTal.style.width = '120px';
+    forthTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '3' && data.current.birch_pollen <= '6' ) {
+    forthTal.style.width = '60px';
+    forthTal.style.backgroundColor = 'yellow';
+  } else {
+    forthTal.style.width = '42px';
+    forthTal.style.backgroundColor = 'green';
+  }
+
+
+  const hourLineFive = document.createElement('p');
+  hourLineFive.classList.add('hourLine');
+  hourLineFive.innerHTML = currentHour + 4 + ":00";
+     const fifthTal = document.createElement('Span');
+  fifthTal.classList.add('chart');
+  fifthTal.style.border = '1px solid #ccc';
+  fifthTal.style.height = '18px';
+  fifthTal.style.margin = '14px 0 0 0';
+  fifthTal.innerText = data.hourly.birch_pollen[currentHour+4];
+  if (data.current.birch_pollen >= '6') {
+    fifthTal.style.width = '100px';
+    fifthTal.style.backgroundColor = 'red';
+  } else if (data.current.birch_pollen >= '' && data.current.birch_pollen <= '6' ) {
+    fifthTal.style.width = '60px';
+    firstTal.style.backgroundColor = 'yellow';
+  } else {
+    fifthTal.style.width = '42px';
+    fifthTal.style.backgroundColor = 'green';
+  }
+
+
+
+  newDivP.appendChild(hourLine);
+  newDivP.appendChild(firstTal);
+
+  newDivP.appendChild(hourLineTwo);
+  newDivP.appendChild(secondTal);
+
+  newDivP.appendChild(hourLineThree);
+  newDivP.appendChild(thirdTal);
+
+  newDivP.appendChild(hourLinefour);
+  newDivP.appendChild(forthTal);
+
+  newDivP.appendChild(hourLineFive);
+  newDivP.appendChild(fifthTal);
+
+
+  MyDiv.appendChild(createchart);
+  SecondSingle.appendChild(cardImage);
+  SecondSingle.appendChild(MyDiv);
+  SecondSingle.appendChild(newDivP);
+
+
+
+
+   
+  }
+  
+  

@@ -8,7 +8,9 @@
      <script src="assets/js/script.js"></script> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="assets/js/vities.js" defer></script>
-    <!-- <script src="assets/js/second.js"></script> -->
+    <link rel="manifest" href="manifest.json">
+   <script src="assets/js/app.js"></script>
+    <!-- <scipt src="assets/js/second.js"></script> -->
 </head>
 <body>
     <section class="main-section">
@@ -25,10 +27,17 @@
             <h4 onclick="Aarhus()">Aarhus</h4>
         </section>
         
-        <section class="body-section" >
-            <div id="dataContainer"></div>
-            <div id="SecondContainer"></div>
-            <div id="ThirdContainer"></div>
+        <section id="AllData" class="body-section" >
+            <div onclick="dataFunc('Birk')" id="dataContainer"></div>
+            <div onclick="SecondFunc('Elm')" id="SecondContainer"></div>
+            <div onclick="Thirdfunch()" id="ThirdContainer"></div>
+        </section>
+        <section id="singlePage">
+            <div id="singleDataDisplay">
+            </div>
+            <div id="singleDataTwo">
+            </div>
+
         </section>
 
         <section class="myButts" id="myBus">
@@ -77,6 +86,20 @@
           </div>
 
         </section>
+
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('/assets/js/service-worker.js').then(function(registration) {
+                        // Registration was successful
+                        console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                    }, function(err) {
+                        // Registration failed
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+                });
+            }
+        </script>
 
         <footer>
             <span class="material-symbols-outlined">

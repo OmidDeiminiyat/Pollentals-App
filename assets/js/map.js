@@ -194,3 +194,7 @@ second.addEventListener('change', function() {
         const closeCity = document.getElementById('cities');
         closeCity.style.display='none';
       }
+
+
+
+     
